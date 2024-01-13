@@ -104,7 +104,7 @@ const Wishlist = () => {
       const { id, name } = product;
       const products = AllProducts[name];
       let favItem = products.filter((product) => {
-        return product.id == id;
+        return product.id === id;
       });
       return favItem[0];
     });

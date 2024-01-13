@@ -1,13 +1,9 @@
-import { Add, Remove } from "@mui/icons-material";
 import styled from "styled-components";
-import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import { useContext, useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { useContext, useRef, useState } from "react";
 import { AllProducts } from "../data";
-import Newsletter from "../components/Newsletter";
 import RemoveShoppingCartOutlinedIcon from "@mui/icons-material/RemoveShoppingCartOutlined";
 import CartContext from "../CartContext";
 
@@ -46,11 +42,6 @@ const TopText = styled.span`
   text-decoration: underline;
   cursor: pointer;
   margin: 0px 10px;
-`;
-
-const Bottom = styled.div`
-  display: flex;
-  justify-content: space-between;
 `;
 
 const Info = styled.div`
@@ -152,7 +143,7 @@ const Cart = () => {
       const { id, name } = product;
       const products = AllProducts[name];
       let finalItem = products.filter((product) => {
-        return product.id == id;
+        return product.id === id;
       });
       return finalItem[0];
     });
@@ -168,18 +159,6 @@ const Cart = () => {
   const removeItem = (e) => {
     console.log("ghvdjbsjkdsndv");
     console.log(e);
-
-    /**let index = cartItems.findIndex((x) => x == e);
-
-    setcartItems(cartItems.splice(index, 1));
-
-    cartItems.map((element) => {
-      if (element == e) {
-        console.log("The object is same");
-      } else {
-        console.log("No its not same you stupid ass");
-      }
-    });*/
   };
 
   return (

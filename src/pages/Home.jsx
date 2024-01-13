@@ -5,10 +5,6 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import Slider from "../components/Slider";
-import Login from "./Login";
-import Register from "./Register";
-import Product from "../components/Product";
-import Cart from "./Cart";
 
 const Home = () => {
   return (

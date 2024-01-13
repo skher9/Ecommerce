@@ -70,10 +70,6 @@ const MenuItem = styled.div`
   margin-left: 25px;
 `;
 
-const Button = styled.div`
-  cursor: pointer;
-`;
-
 const Navbar = () => {
   const [category, setcategory] = useState("");
 

@@ -1,7 +1,7 @@
 import "./App.css";
 import Home from "./pages/Home";
 import Items from "./components/Items";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";

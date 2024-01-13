@@ -5,7 +5,6 @@ import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import Wishlist from "../pages/Wishlist";
 import { AllProducts } from "../data";
 import { useContext } from "react";
 import CartContext from "../CartContext";
@@ -51,13 +50,6 @@ const Price = styled.span`
 const PriceContainer = styled.div`
   margin-top: 40px;
   margin-bottom: 30px;
-`;
-
-const FilterContainer = styled.div`
-  width: 50%;
-  margin: 30px 0px;
-  display: flex;
-  justify-content: space-between;
 `;
 
 const Info = styled.div`
@@ -138,7 +130,7 @@ const Product = () => {
   };
 
   return Data.map((e) => {
-    if (e.id == id) {
+    if (e.id === id) {
       return (
         <Container>
           <Announcement />
@@ -201,6 +193,8 @@ const Product = () => {
           <Footer />
         </Container>
       );
+    } else {
+      return 0;
     }
   });
 };
