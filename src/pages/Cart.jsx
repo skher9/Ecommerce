@@ -145,6 +145,7 @@ const Cart = () => {
       let finalItem = products.filter((product) => {
         return product.id === id;
       });
+      setcartItems(finalItem);
       return finalItem[0];
     });
   });

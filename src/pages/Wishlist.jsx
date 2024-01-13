@@ -106,6 +106,7 @@ const Wishlist = () => {
       let favItem = products.filter((product) => {
         return product.id === id;
       });
+      setfavItems(favItem);
       return favItem[0];
     });
   });

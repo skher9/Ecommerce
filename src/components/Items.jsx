@@ -1,18 +1,16 @@
 import { React, useRef } from "react";
 import { AllProducts, categories } from "../data";
 import styled from "styled-components";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { sliderItems } from "../data";
-import Product from "./Product";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { useContext } from "react";
 import CartContext from "../CartContext";
-import { type } from "@testing-library/user-event/dist/type";
 
 const Container = styled.div`
-  backgroud-color: black;
+  background-color: black;
   padding: 20px;
   text-align: center;
   display: grid;
@@ -71,13 +69,13 @@ const Items = () => {
 
   if (receivedId.current <= 3 && receivedId.current > 0) {
     sliderItems.forEach((ele) => {
-      if (receivedId.current == ele.id) {
+      if (receivedId.current === ele.id) {
         category.current = ele.keyword;
       }
     });
   } else if (receivedId.current > 3) {
     categories.forEach((e) => {
-      if (receivedId.current == e.id) {
+      if (receivedId.current === e.id) {
         category.current = e.keyword;
       }
     });
