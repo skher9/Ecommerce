@@ -249,7 +249,7 @@ const Cart = () => {
               <SummaryItemPrice>₹{Total.current + ship}</SummaryItemPrice>
             </SummaryItem>
             <Link to={`/confirm/${Total.current + ship}/${cartItems.length}`}>
-              <Button onClick={clearAll()}>CHECKOUT NOW</Button>
+              <Button>CHECKOUT NOW</Button>
             </Link>
           </Summary>
         </Wrapper>
