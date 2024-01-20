@@ -5,12 +5,12 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { AllProducts } from "../data";
 import CartContext from "../CartContext";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
   width: 100vw;
-  height: 40vh;
+  min-height: 80vh;
 `;
 
 const Wrapper = styled.div``;
@@ -99,17 +99,19 @@ const Wishlist = () => {
 
   const totalProducts = context.favProduct;
 
-  const [favItems, setfavItems] = useState(() => {
+  const favItems = getfavItems();
+
+  function getfavItems() {
     return totalProducts.map((product) => {
       const { id, name } = product;
       const products = AllProducts[name];
       let favItem = products.filter((product) => {
         return product.id === id;
       });
-      setfavItems(favItem);
+
       return favItem[0];
     });
-  });
+  }
 
   const handleClick = (name, id) => {
     context.updateCart(id, name);
@@ -125,7 +127,7 @@ const Wishlist = () => {
             <TopButton>CONTINUE SHOPPING</TopButton>
           </Link>
           <TopTexts>
-            <TopText>Shopping Bag({favItems.length})</TopText>
+            <TopText>Shopping Bag({favItems?.length})</TopText>
           </TopTexts>
           <Link to={`/cart/:id`}>
             <TopButton type="filled">GO TO CART</TopButton>

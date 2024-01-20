@@ -2,12 +2,14 @@ import styled from "styled-components";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
-import { useContext, useRef, useState } from "react";
+import { useContext, useRef } from "react";
 import { AllProducts } from "../data";
 import RemoveShoppingCartOutlinedIcon from "@mui/icons-material/RemoveShoppingCartOutlined";
 import CartContext from "../CartContext";
 
-const Container = styled.div``;
+const Container = styled.div`
+  min-height: 90vh;
+`;
 
 const Wrapper = styled.div`
   padding: 20px;
@@ -138,18 +140,19 @@ const Cart = () => {
 
   const totalProducts = context.cartProduct;
 
-  const [cartItems, setcartItems] = useState(() => {
+  const cartItems = getCartItems();
+
+  function getCartItems() {
     return totalProducts.map((product) => {
       const { id, name } = product;
       const products = AllProducts[name];
       let finalItem = products.filter((product) => {
         return product.id === id;
       });
-      setcartItems(finalItem);
+
       return finalItem[0];
     });
-  });
-
+  }
   const ship = 299;
   const Total = useRef(0);
 
@@ -172,7 +175,7 @@ const Cart = () => {
             <TopButton>CONTINUE SHOPPING</TopButton>
           </Link>
           <TopTexts>
-            <TopText>Shopping Bag({cartItems.length})</TopText>
+            <TopText>Shopping Bag({cartItems?.length})</TopText>
           </TopTexts>
           <Link to={`/wishlist/:id`}>
             <TopButton type="filled">WISHLIST</TopButton>

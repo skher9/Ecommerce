@@ -10,7 +10,6 @@ import { useContext } from "react";
 import CartContext from "../CartContext";
 
 const Container = styled.div`
-  background-color: black;
   padding: 20px;
   text-align: center;
   display: grid;
